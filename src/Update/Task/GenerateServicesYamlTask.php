@@ -2,24 +2,15 @@
 
 namespace Kyoushu\Conjuration\Update\Task;
 
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
-class GenerateServicesYamlTask extends AbstractYamlGeneratorTask
+class GenerateServicesYamlTask extends AbstractConfigYamlGeneratorTask
 {
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setRequired(['path']);
-    }
 
     public function getDescription(): string
     {
         return sprintf('Generate "%s"', $this->getOptions()['path']);
     }
 
-    protected function createConfig(): array
+    public function createConfig(): array
     {
         $config = ['services' => []];
 
@@ -41,13 +32,5 @@ class GenerateServicesYamlTask extends AbstractYamlGeneratorTask
 
         return $config;
     }
-
-    public function execute(InputInterface $input, OutputInterface $output)
-    {
-        $path = $this->getOptions()['path'];
-        $config = $this->createConfig();
-        $this->writeYamlFile($config, $path);
-    }
-
 
 }
