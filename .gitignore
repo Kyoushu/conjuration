@@ -1,6 +1,7 @@
 /vendor
 /.idea
-/example
+
 /composer.lock
 
+/example/var
 /example/public
