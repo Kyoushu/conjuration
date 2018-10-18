@@ -7,7 +7,7 @@ class FrameworkWizard
 
     protected $projectDir;
 
-    public function __construct(string $projectDir)
+    public function __construct(string $projectDir, string $configPath)
     {
         $this->projectDir = $projectDir;
     }

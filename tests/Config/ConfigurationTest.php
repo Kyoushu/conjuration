@@ -21,7 +21,8 @@ class ConfigurationTest extends TestCase
         $config = $this->processConfig([
             'model' => [
                 [
-                    "name" => "foo"
+                    "name" => "foo",
+                    "label" => "Foo"
                 ]
             ]
         ]);
@@ -30,7 +31,10 @@ class ConfigurationTest extends TestCase
             'model' => [
                 [
                     "name" => "foo",
-                    "single" => false
+                    "label" => "Foo",
+                    "single" => false,
+                    "url_prefix" => null,
+                    "fields" => []
                 ]
             ]
         ], $config);

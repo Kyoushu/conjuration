@@ -1,0 +1,22 @@
+conjuration:
+
+    model:
+
+    -
+        name: homepage
+        url_prefix: /
+        single: true
+        fields:
+            -
+                name: title
+                type: string
+                required: true
+
+    -
+        name: blog-post
+        url_prefix: /blog
+        fields:
+            -
+                name: title
+                type: string
+                required: true
