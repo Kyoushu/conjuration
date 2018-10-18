@@ -10,6 +10,11 @@ class FieldNode extends AbstractConfigNode
         return $this->data['name'];
     }
 
+    public function getLabel(): string
+    {
+        return $this->data['label'];
+    }
+
     public function getType(): string
     {
         return $this->data['type'];

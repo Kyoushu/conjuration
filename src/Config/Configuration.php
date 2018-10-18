@@ -15,6 +15,9 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('public_dir')->defaultValue('public')->end()
+                ->scalarNode('cache_dir')->defaultValue('var/cache')->end()
+                ->scalarNode('log_dir')->defaultValue('var/logs')->end()
                 ->arrayNode('model')
                     ->arrayPrototype()
                         ->children()

@@ -57,6 +57,36 @@ class Config
     }
 
     /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getPublicDir(): string
+    {
+        $this->load();
+        return $this->config['public_dir'];
+    }
+
+    /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getCacheDir(): string
+    {
+        $this->load();
+        return $this->config['cache_dir'];
+    }
+
+    /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getLogDir(): string
+    {
+        $this->load();
+        return $this->config['log_dir'];
+    }
+
+    /**
      * @return array
      * @throws ConfigException
      */

@@ -2,3 +2,5 @@
 /.idea
 /example
 /composer.lock
+
+/example/public

@@ -28,7 +28,7 @@ class ModelNodeTest extends TestCase
         $this->assertEquals('foo', $node->getName());
         $this->assertEquals('Foo', $node->getLabel());
         $this->assertEquals('/foo', $node->getUrlPrefix());
-        $this->assertEquals(false, $node->isSingle());
+        $this->assertFalse($node->isSingle());
         $this->assertCount(1, $node->getFields());
     }
 
