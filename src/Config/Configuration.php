@@ -15,6 +15,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('app_namespace')->defaultValue('App')->end()
                 ->scalarNode('public_dir')->defaultValue('public')->end()
                 ->scalarNode('cache_dir')->defaultValue('var/cache')->end()
                 ->scalarNode('log_dir')->defaultValue('var/logs')->end()
@@ -26,6 +27,12 @@ class Configuration implements ConfigurationInterface
                             ->scalarNode('label')->isRequired()->end()
                             ->scalarNode('url_prefix')->defaultNull()->end()
                             ->booleanNode('single')->defaultFalse()->end()
+                            ->arrayNode('controller')
+                                ->children()
+                                    ->booleanNode('index')->defaultTrue()->end()
+                                    ->booleanNode('show')->defaultTrue()->end()
+                                ->end()
+                            ->end()
                             ->arrayNode('fields')
                                 ->arrayPrototype()
                                     ->children()

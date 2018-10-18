@@ -28,7 +28,7 @@ class Config
     /**
      * @var ModelNode[]
      */
-    protected $modelNodes;
+    protected $models;
 
     public function __construct(string $configPath)
     {
@@ -54,6 +54,16 @@ class Config
         $processor = new Processor();
 
         $this->config = $processor->processConfiguration($configuration, $rawConfig);
+    }
+
+    /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getAppNamespace(): string
+    {
+        $this->load();
+        return $this->config['app_namespace'];
     }
 
     /**
@@ -110,9 +120,9 @@ class Config
      * @return ModelNode[]
      * @throws ConfigException
      */
-    public function getModelNodes(): array
+    public function getModels(): array
     {
-        if($this->modelNodes !== null) return $this->modelNodes;
+        if($this->models !== null) return $this->models;
         $this->load();
 
         $nodes = [];
@@ -120,8 +130,21 @@ class Config
             $nodes[] = new ModelNode($data);
         }
 
-        $this->modelNodes = $nodes;
+        $this->models = $nodes;
         return $nodes;
+    }
+
+    /**
+     * @param string $name
+     * @return ModelNode
+     * @throws ConfigException
+     */
+    public function findModelByName(string $name): ModelNode
+    {
+        foreach($this->models as $model){
+            if($model->getName() === $name) return $model;
+        }
+        throw new ConfigException(sprintf('Model "%s" not defined in %s', $name, static::class));
     }
 
 }

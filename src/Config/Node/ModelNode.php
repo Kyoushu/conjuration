@@ -7,6 +7,11 @@ class ModelNode extends AbstractConfigNode
 
     protected $fields;
 
+    /**
+     * @var ControllerNode|null
+     */
+    protected $controller;
+
     public function getName(): string
     {
         return $this->data['name'];
@@ -25,6 +30,16 @@ class ModelNode extends AbstractConfigNode
     public function isSingle(): bool
     {
         return $this->data['single'];
+    }
+
+    /**
+     * @return ControllerNode
+     */
+    public function getController(): ControllerNode
+    {
+        if($this->controller) return $this->controller;
+        $this->controller = new ControllerNode($this->data['controller']);
+        return $this->controller;
     }
 
     /**

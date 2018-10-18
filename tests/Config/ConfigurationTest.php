@@ -36,7 +36,12 @@ class ConfigurationTest extends TestCase
                     "url_prefix" => null,
                     "fields" => []
                 ]
-            ]
+            ],
+            'app_namespace' => 'App',
+            'public_dir' => 'public',
+            'cache_dir' => 'var/cache',
+            'log_dir' => 'var/logs',
+            'locale' => 'en'
         ], $config);
     }
 

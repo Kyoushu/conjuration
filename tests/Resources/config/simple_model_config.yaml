@@ -4,19 +4,54 @@ conjuration:
 
     -
         name: homepage
+        label: Homepage
         url_prefix: /
         single: true
+        controller:
+            index: false
         fields:
             -
                 name: title
+                label: Title
                 type: string
                 required: true
+            -
+                name: featured_destination
+                label: Featured Destination
+                type: one-to-one:destination
+            -
+                name: featured_regions
+                label: Featured Regions
+                type: many-to-many:region
 
     -
-        name: blog-post
-        url_prefix: /blog
+        name: region
+        label: Region
+        url_prefix: /regions
         fields:
             -
                 name: title
+                label: Title
                 type: string
                 required: true
+            -
+                name: destinations
+                label: Destinations
+                type: one-to-many:destination
+
+    -
+        name: destination
+        label: Destination
+        url_prefix: /destinations
+        controller:
+            index: false
+        fields:
+            -
+                name: title
+                label: Title
+                type: string
+                required: true
+            -
+                name: region
+                label: Region
+                type: many-to-one:region
