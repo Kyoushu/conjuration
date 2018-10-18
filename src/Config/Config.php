@@ -87,6 +87,16 @@ class Config
     }
 
     /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getLocale(): string
+    {
+        $this->load();
+        return $this->config['locale'];
+    }
+
+    /**
      * @return array
      * @throws ConfigException
      */

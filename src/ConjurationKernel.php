@@ -65,6 +65,7 @@ class ConjurationKernel extends Kernel
             'kernel.cache_dir' => $this->getCacheDir(),
             'kernel.logs_dir' => $this->getLogDir(),
             'kernel.container_class' => $this->getContainerClass(),
+            'kernel.locale' => $this->getWizard()->getLocale()
         ];
     }
 

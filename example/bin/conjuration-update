@@ -11,10 +11,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 require(__DIR__ . '/../../vendor/autoload.php');
 
-$projectDir = getcwd();
-$configPath = sprintf('%s/conjuration.yaml', $projectDir);
-
-$wizard = new Wizard($projectDir);
+$wizard = new Wizard(getcwd());
 
 $input = new ArrayInput([]);
 $output = new ConsoleOutput();

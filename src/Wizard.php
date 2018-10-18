@@ -69,6 +69,23 @@ class Wizard
         return sprintf('%s/%s', $this->projectDir, $this->config->getLogDir());
     }
 
+    /**
+     * @return string
+     */
+    public function getConfigDir(): string
+    {
+        return sprintf('%s/config', $this->projectDir);
+    }
+
+    /**
+     * @return string
+     * @throws ConfigException
+     */
+    public function getLocale(): string
+    {
+        return $this->config->getLocale();
+    }
+
     public function getConfig(): Config
     {
         return $this->config;

@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('public_dir')->defaultValue('public')->end()
                 ->scalarNode('cache_dir')->defaultValue('var/cache')->end()
                 ->scalarNode('log_dir')->defaultValue('var/logs')->end()
+                ->scalarNode('locale')->defaultValue('en')->end()
                 ->arrayNode('model')
                     ->arrayPrototype()
                         ->children()
