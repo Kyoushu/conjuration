@@ -14,7 +14,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 $projectDir = getcwd();
 $configPath = sprintf('%s/conjuration.yaml', $projectDir);
 
-$wizard = new Wizard($projectDir, new Config($configPath));
+$wizard = new Wizard($projectDir);
 
 $input = new ArrayInput([]);
 $output = new ConsoleOutput();
