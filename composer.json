@@ -1,0 +1,29 @@
+{
+    "name": "kyoushu/conjuration",
+    "description": "A tool for automatically configuring and installing Symfony 4 bundles",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Willans",
+            "email": "kyoushu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~7.1",
+        "symfony/config": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kyoushu\\Conjuration\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Kyoushu\\Conjuration\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    }
+}
